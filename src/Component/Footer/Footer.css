@@ -1,33 +1,62 @@
+/* ------------------------------
+   Footer — responsive (desktop preserved)
+   ------------------------------ */
+
+/* CSS Vars (desktop defaults match your original values) */
+:root {
+  --footer-bg: #000;
+  --footer-color: #fff;
+  --footer-padding-vertical: 60px;
+  --footer-padding-horizontal: 100px;
+  --footer-border-radius: 16px;
+  --footer-border-color: #fff;
+  --footer-gap: 60px;
+  --footer-section-min: 200px;
+
+  --footer-h3-size: 24px;
+  --footer-body-size: 1.05rem;
+  --footer-item-size: 1.1rem;
+  --footer-lineheight-item: 33px;
+
+  --footer-logo-width: 160px;
+  --footer-social-size: 24px;
+  --footer-bottom-icon-size: 40px;
+}
+
+/* Base / Desktop: KEEP EXACT VALUES YOU PROVIDED */
 .footer {
-  background-color: #000;
-  color: #fff;
-  padding: 60px 100px;
+  background-color: var(--footer-bg);
+  color: var(--footer-color);
+  padding: var(--footer-padding-vertical) var(--footer-padding-horizontal);
   font-family: "Montserrat", sans-serif;
-  border-radius: 16px;
-  border: 1px solid #fff;
+  border-radius: var(--footer-border-radius);
+  border: 1px solid var(--footer-border-color);
   margin-top: 40px;
+
+  /* prevent accidental horizontal scrolling on desktop while preserving your dimensions */
+  overflow-x: hidden;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: nowrap;
-  gap: 60px; 
+  flex-wrap: nowrap; /* keep desktop non-wrapping layout */
+  gap: var(--footer-gap);
   padding-bottom: 30px;
 }
 
 .footer-section {
   flex: 1 1 auto;
-  min-width: 200px;
+  min-width: var(--footer-section-min);
 }
 
-
+/* Heading */
 .footer-section h3 {
   font-weight: 600;
   margin-bottom: 35px;
   font-family: "Sora", sans-serif;
-  font-size: 24px;
+  font-size: var(--footer-h3-size);
   background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 50%, #5f5f5f 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -36,30 +65,33 @@
   letter-spacing: 0.2px;
 }
 
-
+/* left paragraph block */
 .f-left {
-  width: 380px;
+  width: 380px; /* keep desktop width unchanged */
   font-family: "Montserrat", sans-serif;
-  font-size: 1.05rem;
+  font-size: var(--footer-body-size);
   font-weight: 400;
   color: #dadada;
   line-height: 1.7;
 }
 
+/* lists */
 .footer-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-
 
 .footer-section ul li {
   margin-bottom: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 1.1rem;
-  line-height: 33px; /* ✅ per your request */
+  font-size: var(--footer-item-size);
+  line-height: var(--footer-lineheight-item); /* preserved as requested */
   color: #ccc;
   font-weight: 500;
+  /* allow wrapping on small screens */
+  white-space: normal;
 }
 
 .footer-section ul li:hover {
@@ -71,24 +103,28 @@
   transform: scale(1.03);
 }
 
-/* Contact info */
+/* contact / paragraph styling */
 .footer-section p {
   color: #ccc;
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
+/* logo */
 .footer-logo img {
-  width: 160px;
+  width: var(--footer-logo-width);
   margin-bottom: 25px;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Right side social icons */
+/* social icons on right side */
 .social-icons {
   display: flex;
   gap: 20px;
-  font-size: 24px;
+  font-size: var(--footer-social-size);
   margin-top: 80px;
+  flex-wrap: wrap; /* allow wrap to next line on narrower screens */
 }
 
 .social-icons svg {
@@ -101,30 +137,28 @@
   color: #fff;
 }
 
-
-
+/* footer-right spacing (desktop only) */
 .footer-right {
-  margin-right: 70px; 
+  margin-right: 70px; /* preserved on desktop */
 }
 
-
+/* bottom area with icons */
 .footer-bottom {
-     display: flex;                
-  justify-content: space-between;   
-  align-items: center;   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: left;
-
   color: white;
   font-size: 16px;
-width: 98%;
-
+  width: 98%;
+  gap: 20px;
+  flex-wrap: nowrap; /* preserve desktop one-line layout */
 }
-
 
 .footer-bottom-icons {
   display: flex;
-  gap: 30px;                         
-  font-size: 40px;
+  gap: 30px;
+  font-size: var(--footer-bottom-icon-size);
 }
 
 .footer-bottom-icons svg {
@@ -136,120 +170,147 @@ width: 98%;
 .footer-bottom-icons svg:hover {
   color: #fff;
 }
-/* ----------------------------- */
-/* 📱 Responsive Design Section  */
-/* ----------------------------- */
 
-/* Tablet screens (≤ 1024px) */
-@media (max-width: 1024px) {
-  .footer {
-    padding: 50px 60px;
-  }
+/* -----------------------------
+   Responsive Improvements
+   (desktop preserved — adjustments apply under breakpoints)
+   ----------------------------- */
 
+/* Prevents overflow earlier for medium screens and allows wrapping */
+@media (max-width: 1200px) {
   .footer-container {
-    flex-wrap: wrap;
     gap: 40px;
+    flex-wrap: wrap;           /* allow sections to wrap when space is tight */
+    align-items: flex-start;
   }
 
   .footer-section {
-    flex: 1 1 45%;
+    flex: 1 1 45%;             /* two columns if space allows */
+    min-width: 220px;
+  }
+
+  /* keep left paragraph from forcing a huge width — let it become responsive */
+  .f-left {
+    width: auto;
+    max-width: 420px;
+  }
+
+  /* reduce top margin of social icons a bit */
+  .social-icons { margin-top: 40px; }
+  .footer-right { margin-right: 30px; }
+}
+
+/* Tablet screens (≤ 1024px) — your original adjustments but tightened to avoid overflow */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 50px 60px; /* you already used this — kept but applied at this breakpoint */
+  }
+
+  .footer-container {
+    gap: 32px;
+  }
+
+  .footer-section {
+    flex: 1 1 48%;
   }
 
   .f-left {
     width: 100%;
+    max-width: 100%;
+    font-size: clamp(0.95rem, 1.9vw, 1.02rem); /* slight responsive scaling */
   }
 
-  .footer-right {
-    margin-right: 0;
-  }
-
-  .social-icons {
-    margin-top: 40px;
-  }
+  .footer-logo img { width: 140px; }
+  .social-icons { margin-top: 32px; gap: 16px; }
+  .footer-bottom { width: 100%; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+  .footer-bottom-icons { gap: 22px; font-size: 34px; }
 }
 
-/* Mobile screens (≤ 768px) */
+/* Mobile screens (≤ 768px) — stack sections vertically and keep spacing tidy */
 @media (max-width: 768px) {
   .footer {
     padding: 40px 30px;
-    border-radius: 0;
+    border-radius: 8px; /* slightly smaller radius on mobile */
   }
 
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 28px;
   }
 
   .footer-section {
     width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
-  .footer-logo img {
-    width: 130px;
-    margin-bottom: 10px;
-  }
+  .footer-logo img { width: 130px; margin-bottom: 16px; }
 
   .f-left {
     width: 100%;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2.6vw, 1rem);
     line-height: 1.6;
   }
 
   .footer-section h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: clamp(18px, 3.2vw, 20px);
+    margin-bottom: 18px;
   }
 
   .footer-section ul li {
-    font-size: 1rem;
-    line-height: 30px;
+    font-size: clamp(0.95rem, 2.6vw, 1rem);
+    line-height: 30px; /* preserved feel but responsive */
   }
 
+  /* social icons align left and wrap */
   .social-icons {
-    margin-top: 20px;
+    margin-top: 16px;
     justify-content: flex-start;
+    gap: 12px;
   }
 
+  /* footer-bottom stacks cleanly */
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 12px;
     text-align: left;
     width: 100%;
     font-size: 14px;
   }
 
-  .footer-bottom-icons {
-    font-size: 28px;
-    gap: 20px;
-  }
+  .footer-bottom-icons { font-size: 28px; gap: 18px; }
+  .footer-right { margin-right: 0; }
 }
 
-/* Small mobile screens (≤ 480px) */
+/* Small mobile screens (≤ 480px) — last tweaks */
 @media (max-width: 480px) {
   .footer {
     padding: 30px 20px;
+    border-radius: 6px;
   }
 
-  .footer-section h3 {
-    font-size: 18px;
-  }
+  .footer-section h3 { font-size: 18px; }
+  .footer-section ul li { font-size: 0.95rem; line-height: 28px; }
+  .f-left { font-size: 0.95rem; }
+  .footer-bottom { font-size: 13px; }
+  .footer-bottom-icons { font-size: 24px; gap: 12px; }
+  .footer-logo img { width: 120px; }
+}
 
-  .footer-section ul li {
-    font-size: 0.95rem;
-  }
+/* Accessibility: keep focus visible for icons/interactive items */
+.footer a:focus,
+.footer button:focus,
+.footer svg:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.08);
+  outline-offset: 4px;
+}
 
-  .f-left {
-    font-size: 0.95rem;
-  }
-
-  .footer-bottom {
-    font-size: 13px;
-  }
-
-  .footer-bottom-icons {
-    font-size: 24px;
-    gap: 15px;
-  }
+/* Helpful utility: ensure long words/wide links don't break layout on tiny screens */
+.footer-section,
+.footer-section ul,
+.footer-section p {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }

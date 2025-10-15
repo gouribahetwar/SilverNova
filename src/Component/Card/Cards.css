@@ -167,3 +167,166 @@ box-shadow: 5px 0px 4px 0px #FFFFFF80 inset,
     0px 10px 20px rgba(0, 0, 0, 0.4),
     0px 10px 15px rgba(255, 255, 255, 0.1);
 } */
+/* Keep existing desktop layout as is */
+
+/* Responsive adjustments */
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .carousel-container {
+    height: 550px;
+  }
+
+  .card {
+    width: 350px;
+    height: 480px;
+  }
+
+  .card.left1 {
+    transform: translateX(-260px) rotateY(25deg) scale(0.8);
+  }
+
+  .card.left2 {
+    transform: translateX(-450px) rotateY(25deg) scale(0.7);
+  }
+
+  .card.right1 {
+    transform: translateX(260px) rotateY(-25deg) scale(0.8);
+  }
+
+  .card.right2 {
+    transform: translateX(450px) rotateY(-25deg) scale(0.7);
+  }
+
+  .usecase-header h2 {
+    font-size: 30px;
+  }
+
+  .usecase-header p {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+}
+/* Between 1024px and 500px: show 3 cards only */
+@media (max-width: 1024px) and (min-width: 760px) {
+  .carousel-container {
+    height: 500px;
+    bottom: -1px;
+    margin-top: 20px;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+  }
+
+  /* Center card stays active */
+  .card.active {
+    transform: translateX(0) scale(1);
+    z-index: 5;
+  }
+
+  /* Only one card to left and one to right */
+  .card.left1 {
+    transform: translateX(-220px) rotateY(25deg) scale(0.8);
+    z-index: 4;
+    opacity: 0.9;
+  }
+
+  .card.right1 {
+    transform: translateX(220px) rotateY(-25deg) scale(0.8);
+    z-index: 4;
+    opacity: 0.9;
+  }
+
+  /* Hide extra side cards */
+  .card.left2,
+  .card.right2 {
+    display: none;
+  }
+
+  /* Adjust heading and paragraph */
+  .usecase-header h2 {
+    font-size: 26px;
+  }
+
+  .usecase-header p {
+    font-size: 1.1rem;
+        margin: 0 auto 10px;
+  }
+}
+
+/* Below 760px: show only 1 card */
+@media (max-width: 760px) {
+  .carousel-container {
+    height: 450px;
+    bottom: -1px;
+    margin-top: 5px;
+  }
+  .usecase-header p {
+    font-size: 1.1rem;
+        margin: 0 auto 10px;
+  }
+   
+
+  .card {
+    width: 250px;
+    height: 360px;
+    transform: translateX(0) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 5;
+  }
+
+  /* Hide all side cards */
+  .card.left1,
+  .card.left2,
+  .card.right1,
+  .card.right2 {
+    display: none;
+  }
+
+  /* Adjust section padding */
+  .usecase-section {
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  /* Adjust heading and paragraph */
+  .usecase-header h2 {
+    font-size: 22px;
+  }
+
+  .usecase-header p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .usecase-header p {
+  font-size: 1rem;
+  max-width: 661px;
+  margin: 0 auto 10px;
+  line-height: 1.6;
+  color: white;
+  font-family: Montserrat,sans-serif;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+}
+    .usecase-section {
+        width: 100%;
+        padding: 30px 15px;
+    }
+    .usecase-header h2 {
+  
+ margin-top: 40px;
+ margin-bottom: 20px;
+    }
+
+    .usecase-header h2 {
+  font-size: 1.7rem;
+ 
+ 
+}
+  
+}

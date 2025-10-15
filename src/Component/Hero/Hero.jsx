@@ -19,7 +19,7 @@ const Hero = () => {
             Revolutionizing <span>Digital Finance</span> with{" "}
             <span>Blockchain Innovation</span>
           </h1>
-          <p>
+          <p> 
             Silvernova Token (SRN) is more than just a cryptocurrency It's a
             revolution in digital finance! Built on the BEP-20 network, SRN is
             designed to fuel a new era of seamless transactions, passive

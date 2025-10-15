@@ -24,8 +24,6 @@ function App() {
 
   return (
     <>
-
-
     <Navbar/>
     <Hero/>
     <Marquees/>
@@ -35,11 +33,14 @@ function App() {
   <Token/>  
 <TokenSupply/>
 
-<Roadmap/>
+
 <Partner/>
-<Contract/>
 <FAQ/>
 <Footer/>
+{/* <Roadmap/>
+<Contract/>
+
+ */}
     </>
   )
 }

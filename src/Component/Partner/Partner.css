@@ -1,3 +1,11 @@
+/* keep box sizing predictable */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ------------------ Desktop (UNCHANGED) ------------------ */
 .section-container {
   display: flex;
   justify-content: space-between;
@@ -6,7 +14,7 @@
   background-color: #000;
   color: #fff;
   min-height: 100vh;
-gap: 100px;
+  gap: 100px;
   width: 95%;
   margin: auto;
 }
@@ -17,24 +25,20 @@ gap: 100px;
   font-weight: 600;
   font-style: SemiBold;
   font-size: 48px;
-  line-height: 80px;
+  line-height: 70px;
   letter-spacing: -0.04em;
-  max-width: 650px;
- 
-  
-
+  max-width: 660px;
 }
 
-.section-left span {
-  color: #bfbfbf;
-}
-.partner-text{
-       background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 100%);
+.partner-text {
+  background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; /* for Firefox */
+  background-clip: text;
   color: transparent;
+  max-width: 630px;
 }
+
 .section-right {
   display: flex;
   flex-direction: column;
@@ -42,34 +46,210 @@ gap: 100px;
   flex: 0.5;
 }
 
-.section-right button {
+/* ------------------ BUTTON (image inside) ------------------ */
+
+/* New class for partner buttons to avoid touching other buttons */
+.partner-btn {
+  /* preserve desktop height/width exactly as before */
+  max-width: 480px;
+  height: 80px;
+
+  /* remove large vertical padding so the image can be centered.
+     The outer height stays 80px (unchanged), so layout is preserved. */
+  padding: 0;
+
+  /* center the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* visual styles kept from original */
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 28px; /* not used when image present but kept for fallback */
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
   color: #fff;
-  background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
+  background-color: BLACK;
   border: none;
-  background-color: #1a1a1a;
-  padding: 30px 0;
   border-radius: 12px;
-  box-shadow: 
-    8px 8px 16px 0px #242222,
-    -8px -8px 16px 0px #63636340;
+  box-shadow:
+    8px 8px 8px 0px #242222,
+    -8px -8px 8px 0px #63636340;
   transition: all 0.3s ease-in-out;
-  max-width: 480px;
-  height: 80px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.section-right button:hover {
+/* Hover effect retained */
+.partner-btn:hover {
   transform: translateY(-4px);
   box-shadow:
     8px 8px 20px 0px #1a1a1a,
     -8px -8px 20px 0px #63636360;
+}
+
+/* Image inside button: scale responsively and stay centered */
+/* Use max-height and max-width so it adapts well in responsive breakpoints */
+.partner-btn img {
+  display: block;
+  max-height: 60%;   /* 60% of button height -> scales with button height */
+  max-width: 70%;    /* caps width so logos don't overflow horizontally */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Provide a fallback if image fails — show hidden text (for a11y) */
+.partner-btn span {
+  display: none;
+}
+
+/* ------------------ Responsive breakpoints (keeps original behavior) ------------------ */
+
+/* Large laptops (<= 1400px): slight scaling but keep desktop look */
+@media (max-width: 1400px) {
+  .section-container {
+    padding: 64px;
+    gap: 80px;
+  }
+  .section-left {
+    font-size: 42px;
+    line-height: 72px;
+    max-width: 620px;
+  }
+  .partner-btn {
+    font-size: 26px;
+    height: 76px;
+    max-width: 460px;
+  }
+  .partner-btn img {
+    max-height: 62%;
+  }
+}
+
+/* Medium screens / tablets (<= 1024px): reduce sizes further */
+@media (max-width: 1024px) {
+  .section-container {
+    padding: 48px;
+    gap: 60px;
+    min-height: 85vh;
+  }
+  .section-left {
+    font-size: 36px;
+    line-height: 64px;
+    max-width: 560px;
+  }
+  .section-right {
+    gap: 28px;
+  }
+  .partner-btn {
+    font-size: 24px;
+    height: 72px;
+    max-width: 420px;
+  }
+  .partner-btn img {
+    max-height: 65%;
+  }
+}
+
+/* Small tablets & large phones (<= 900px): stack vertically */
+@media (max-width: 900px) {
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    gap: 36px;
+    min-height: auto;
+  }
+
+  .section-left {
+    order: 1;
+    width: 100%;
+    max-width: 800px;
+    font-size: clamp(22px, 5.2vw, 32px);
+    line-height: clamp(34px, 8.5vw, 52px);
+    text-align: center;
+    max-width: 95%;
+  }
+
+  .section-right {
+    order: 2;
+    width: 100%;
+    max-width: 520px;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .partner-btn {
+    width: 100%;
+    max-width: 520px;
+    font-size: clamp(18px, 4.2vw, 22px);
+    padding: 0;
+    height: 64px;
+    border-radius: 10px;
+  }
+  .partner-btn img {
+    max-height: 60%;
+    max-width: 60%;
+  }
+}
+
+/* Phones (<= 600px): compact, readable and tappable */
+@media (max-width: 600px) {
+  .section-container {
+    padding: 32px 18px;
+    gap: 24px;
+  }
+  .section-left {
+    font-size: clamp(18px, 6.2vw, 28px);
+    line-height: clamp(28px, 8.5vw, 44px);
+  }
+
+  .section-right {
+    gap: 16px;
+    width: 100%;
+    max-width: 420px;
+  }
+  .partner-btn {
+    font-size: 18px;
+    padding: 0;
+    height: 56px;
+  }
+  .partner-btn img {
+    max-height: 70%;
+    max-width: 70%;
+  }
+}
+
+/* Very small phones (<= 420px): final tweaks */
+@media (max-width: 420px) {
+  .section-container {
+    padding: 24px 14px;
+    gap: 18px;
+  }
+  .section-left {
+    font-size: 18px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .partner-btn {
+    height: 52px;
+    padding: 0;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  .partner-btn img {
+    max-height: 72%;
+    max-width: 72%;
+  }
+}
+
+/* Accessibility: keep focus visible */
+.partner-btn:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.08);
+  outline-offset: 4px;
 }

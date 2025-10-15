@@ -1,29 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+/* --- responsive sizing variables --- */
+:root{
+  --supply-gap: 40px;
+
+  /* left box sizing (keeps desktop size at upper bound) */
+  --left-box-min: 280px;
+  --left-box-preferred: 22vw;   /* scales with viewport */
+  --left-box-max: 310px;       
+
+  /* right box sizing (keeps desktop size at upper bound) */
+  --right-box-min: 260px;
+  --right-box-preferred: 23vw;
+  --right-box-max: 324px;       /* original desktop width */
+
+  /* heights */
+  --left-box-height-min: 80px;
+  --left-box-height-preferred: 8.5vh;
+  --left-box-height-max: 85px;
+
+  --right-box-height-min: 48px;
+  --right-box-height-preferred: 6.2vh;
+  --right-box-height-max: 56px;
+
+  /* fonts responsive */
+  --left-font-min: 18px;
+  --left-font-preferred: 2.6vw;
+  --left-font-max: 25px;
+
+  --right-font-min: 1.0rem;
+  --right-font-preferred: 1.9vw;
+  --right-font-max: 1.6rem;
+}
+
+/* layout container */
 .supply-main {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: var(--supply-gap);
   margin: 60px auto;
-  width: fit-content;
+
+  /* keep centered but allow responsive shrink on small screens */
+  width: min(100%, calc(var(--left-box-max) + var(--right-box-max) + var(--supply-gap)));
+  padding: 0 20px; /* safe horizontal padding on tiny viewports */
 }
 
+/* container inside each grid cell (unchanged) */
 .supply-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   font-family: "Montserrat", sans-serif;
 }
 
-/* LEFT BOX */
+/* LEFT BOX - responsive width/height/font using clamp() */
 .left-box {
   position: relative;
-  width: 310px;
-  height: 80px;
+
+  width: clamp(var(--left-box-min), var(--left-box-preferred), var(--left-box-max));
+  height: clamp(var(--left-box-height-min), var(--left-box-height-preferred), var(--left-box-height-max));
+
   font-weight: 700;
-  font-size: 25px;
+  font-size: clamp(var(--left-font-min), var(--left-font-preferred), var(--left-font-max));
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -33,7 +73,7 @@
   box-shadow: 0px 4px 4px 0px #FFFFFF40 inset;
   z-index: 0;
 
-  /* ✨ Gradient text effect */
+  /* gradient text styling retained */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -41,7 +81,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Gradient border using pseudo-element */
+/* Gradient border using pseudo-element (unchanged visuals) */
 .left-box::before {
   content: "";
   position: absolute;
@@ -60,13 +100,15 @@
   z-index: -1;
 }
 
-/* RIGHT BOX */
+/* RIGHT BOX - responsive width/height/font */
 .right-box {
   position: relative;
-  width: 324px;
-  height: 56px;
+
+  width: clamp(var(--right-box-min), var(--right-box-preferred), var(--right-box-max));
+  height: clamp(var(--right-box-height-min), var(--right-box-height-preferred), var(--right-box-height-max));
+
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: clamp(var(--right-font-min), var(--right-font-preferred), var(--right-font-max));
   color: white;
   display: flex;
   align-items: center;
@@ -75,17 +117,16 @@
   box-shadow: 0px 4px 4px 0px #FFFFFF40 inset;
   margin-left: -1px;
   z-index: 0;
- 
 
-  /* Only bottom corners rounded */
+  /* Only bottom corners rounded (kept) */
   border-top-left-radius: 0;
   border-top-right-radius: 12px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 12px;
-  font-family:Montserrat,sans-serif ;
+  font-family: Montserrat, sans-serif;
 }
 
-/* Gradient border for right box */
+/* Gradient border for right box (unchanged visuals) */
 .right-box::before {
   content: "";
   position: absolute;
@@ -93,7 +134,6 @@
   left: -1px;
   bottom: -1px;
   right: -1px;
-  /* border-radius: 12px; */
   padding: 1px;
   background: linear-gradient(180deg, #070707 0%, #C0C0C0 49.52%, #0E0E0E 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box,
@@ -102,31 +142,71 @@
   mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
-    border-top-left-radius: 0;
+  border-top-left-radius: 0;
   border-top-right-radius: 12px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 12px;
 }
 
-/* Center the last item */
-.supply-main > :nth-child(5) {
-  grid-column: span 2;
-  justify-self: center;
+/* --- Fifth item: only centered (span 2) on wide screens --- */
+/* Apply span-2 center behavior only when viewport is wider than 900px */
+@media (min-width: 901px) {
+  .supply-main > :nth-child(5) {
+    grid-column: span 2;
+    justify-self: center;
+  }
 }
 
-/* Responsive */
+/* For <=900px keep the 5th child in the same single-column flow as other items */
+@media (max-width: 900px) {
+  .supply-main > :nth-child(5) {
+    grid-column: auto;      /* don't span two columns */
+    justify-self: stretch;  /* behave like other stacked items (fills available width) */
+    align-self: center;     /* optional: vertically center if needed */
+  }
+}
+
+/* Responsive smaller screens: keep layout but let boxes be full-width-ish */
 @media (max-width: 900px) {
   .supply-main {
     grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 18px;
   }
 
   .supply-main > :nth-child(5) {
     grid-column: auto;
   }
 
+  /* for stacked layout let boxes expand but cap at original desktop widths */
   .left-box,
   .right-box {
-    width: 90%;
+    width: min(90%, var(--left-box-max));
     justify-content: center;
   }
+
+  /* Slight density tweaks for mobile */
+  .left-box { height: clamp(56px, 8vh, 72px); }
+  .right-box { height: clamp(44px, 6.5vh, 56px); }
 }
+
+/* Optional: small tweaks for very narrow phones */
+@media (max-width: 420px) {
+  :root {
+    /* you can tweak these if you want smaller fonts/heights on very tiny screens */
+  }
+
+  .supply-main {
+    margin: 28px auto;
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  .left-box { font-size: clamp(16px, 4.5vw, 20px); }
+  .right-box { font-size: clamp(0.95rem, 3.5vw, 1.25rem); }
+}
+
+/* utility: keep visual fidelity (no pointer changes) */
+.supply-main > * { box-sizing: border-box; }

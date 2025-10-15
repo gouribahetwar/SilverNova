@@ -2,8 +2,9 @@ import React from "react";
 import bitcoin from "../../assets/11.png";
 import cake from "../../assets/12.png";
 import meta from "../../assets/13.png";
-import sw from "../../assets/13.png";
+import sw from "../../assets/14.png";
 import dg from "../../assets/15.png";
+import dgr from "../../assets/19.png";
 import Marquee from "react-fast-marquee";
 
 import "./Marquees.css";
@@ -15,6 +16,7 @@ const Marquees = () => {
     { name: "meta", logo: meta },
      { name: "sw", logo: sw },
     { name: "dg", logo: dg },
+    { name: "dgr", logo: dgr },
   ];
 
   // Duplicate the list for seamless loop

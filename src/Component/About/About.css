@@ -3,12 +3,17 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 80px 0;
+ 
+  padding-top: 80;
+  padding-top: 70px;
   background-color: #000;
   color: #fff;
   flex-wrap: wrap;
-  width: 90%;
+  gap:80px;
+    width: 90%;
   margin:auto;
+  padding-left: 30px;
+
 }
 
 .about-left {
@@ -136,11 +141,41 @@
   display: none;
 }
 
+@media (max-width: 1200px) {
+.about-video {
+
+  max-width: 450px;
+ 
+  
+  object-fit: cover;
+ 
+}
+.about-section {
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+   
+    background-color: #000;
+    color: #fff;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    margin: auto;
+    padding-left: 30px;
+}
+}
 /* Mobile styles */
 @media (max-width: 910px) {
   .about-left-desktop {
     display: none; /* hide desktop video */
   }
+  .about-section {
+ 
+  padding-left: 1px;
+
+}
 
   .about-left-mobile {
     display: flex; /* show mobile video */
@@ -155,19 +190,22 @@
     height: auto;
     border-radius: 10px;
   }
-
+.about-title {
+  font-size: 1.5rem;
+  
+}
   /* Stack content vertically and reorder */
   .about-section {
     flex-direction: column;
     text-align: center;
   }
  .about-description {
-  font-size: 20px;
+  font-size: 1.1rem;
   line-height: 1.6;
   color:#FFFFFF;
   margin-bottom: 30px;
   font-weight: 400 !important;
-  max-width: 580px;
+  max-width: 6300px;
   text-align: left;
 }
 
@@ -178,7 +216,12 @@
   .ABTBTN { order: 5; margin: 0 auto; }
 }
 
-
+@media (max-width: 768px) {
+.about-title {
+  font-size: 1.5rem;
+  
+}
+}
 
 
 @media (max-width: 400px) {
@@ -191,7 +234,7 @@
 text-align: left;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+ padding: 0 20px;
   
   background-clip: text;
   color: transparent;
@@ -199,7 +242,7 @@ text-align: left;
  .about-description {
   font-size: 1rem;
   line-height: 1.6;
-
+  padding: 0 20px;
   margin-bottom: 30px;
  word-spacing: 0.7px;
   max-width: 580px;
@@ -214,5 +257,7 @@ text-align: left;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 300;
+ 
 }
 }
+
