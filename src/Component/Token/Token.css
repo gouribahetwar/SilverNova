@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap');
+
+/* ===== Section Container ===== */
+/* .token-section {
+  display: flex;
+  flex-direction: column
+  align-items: center; 
+  justify-content: center;
+  width: 90%;
+  margin: 60px auto;
+} */
+.token-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 60px auto;
+  overflow: hidden; 
+}
+.token-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transform: translate(-50%, -50%);
+  z-index: 0; 
+}
+.token-content {
+  position: relative;
+  z-index: 1; 
+  width: 100%;
+  text-align: center;
+}
+
+
+.token-subtitle {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #FFFFFF, #5F5F5F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 300;
+  text-align: center;
+  font-family: sora,sans-serif;
+}
+
+.token-subtitle::after {
+  content: "";
+  position: absolute;
+  left: 70%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #FFFFFF, #5F5F5F);
+  transition: width 0.4s ease;
+}
+
+.token-subtitle:hover::after {
+  width: 30%;
+}
+
+/* ===== Description ===== */
+.token-description {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #fff;
+  max-width: 830px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  font-family: Montserrat,sans-serif;
+  font-weight: 300;
+}
+
+/* ===== Token Container ===== */
+.token-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%); */
+  color: white;
+  padding: 60px 10px;
+  font-family: 'Sora', sans-serif;
+  flex-wrap: wrap;
+ gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+/* ===== Left Image ===== */
+.token-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width:550px;
+}
+
+.token-image {
+  height: auto;
+  max-width: 100%;
+}
+
+/* ===== Right Token Card ===== */
+.token-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.token-card {
+  background: #000000E5;
+  box-shadow: 4px 4px 8px 0px #FFFFFF63;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  backdrop-filter: blur(8px);
+  padding: 40px 50px;
+  transition: all 0.3s ease;
+  width: 720px;
+  max-height: 450px;
+}
+
+.token-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 12px 0px #FFFFFF90;
+}
+
+.token-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 2px;
+  transition: all 0.3s ease;
+}
+
+.token-row:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== Gradient Box ===== */
+.token-box {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+  border-radius: 3px;
+  /* background: linear-gradient(145deg, #fff, #777); */
+  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.4); */
+}
+
+/* ===== Label ===== */
+.token-label {
+  font-family: 'Sora', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 100%;
+  color: #FFFFFF;
+  margin: 0;
+  cursor: default;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .token-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .token-card {
+    width: 100%;
+    padding: 30px 25px;
+  }
+
+  .token-label {
+    font-size: 24px;
+  }
+
+  .token-image {
+    max-width: 70%;
+    margin-bottom: 30px;
+  }
+  .token-container {
+ 
+  width: 100%;
+
+}
+}
+
+@media (max-width: 1200px) {
+  .token-card {
+    background: #000000E5;
+    box-shadow: 4px 4px 8px 0px #FFFFFF63;
+    border-radius: 20px;
+    display: flex
+;
+    flex-direction: column;
+    gap: 18px;
+    backdrop-filter: blur(8px);
+    padding: 40px 50px;
+    transition: all 0.3s 
+ease;
+    width: 600px;
+    max-height: 400px;
+  }
+
+  .token-label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 100%;
+    color: #FFFFFF;
+    margin: 0;
+    cursor: default;
+  }
+}

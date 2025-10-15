@@ -1,0 +1,255 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 100px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 16px;
+  border: 1px solid #fff;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 60px; 
+  padding-bottom: 30px;
+}
+
+.footer-section {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+
+.footer-section h3 {
+  font-weight: 600;
+  margin-bottom: 35px;
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 50%, #5f5f5f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: 0.2px;
+}
+
+
+.f-left {
+  width: 380px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #dadada;
+  line-height: 1.7;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  line-height: 33px; /* ✅ per your request */
+  color: #ccc;
+  font-weight: 500;
+}
+
+.footer-section ul li:hover {
+  background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 50%, #5f5f5f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transform: scale(1.03);
+}
+
+/* Contact info */
+.footer-section p {
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.footer-logo img {
+  width: 160px;
+  margin-bottom: 25px;
+}
+
+/* Right side social icons */
+.social-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+  margin-top: 80px;
+}
+
+.social-icons svg {
+  color: #ccc;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icons svg:hover {
+  color: #fff;
+}
+
+
+
+.footer-right {
+  margin-right: 70px; 
+}
+
+
+.footer-bottom {
+     display: flex;                
+  justify-content: space-between;   
+  align-items: center;   
+  text-align: left;
+
+  color: white;
+  font-size: 16px;
+width: 98%;
+
+}
+
+
+.footer-bottom-icons {
+  display: flex;
+  gap: 30px;                         
+  font-size: 40px;
+}
+
+.footer-bottom-icons svg {
+  color: #ccc;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-bottom-icons svg:hover {
+  color: #fff;
+}
+/* ----------------------------- */
+/* 📱 Responsive Design Section  */
+/* ----------------------------- */
+
+/* Tablet screens (≤ 1024px) */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 50px 60px;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .footer-section {
+    flex: 1 1 45%;
+  }
+
+  .f-left {
+    width: 100%;
+  }
+
+  .footer-right {
+    margin-right: 0;
+  }
+
+  .social-icons {
+    margin-top: 40px;
+  }
+}
+
+/* Mobile screens (≤ 768px) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 30px;
+    border-radius: 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .footer-logo img {
+    width: 130px;
+    margin-bottom: 10px;
+  }
+
+  .f-left {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-section ul li {
+    font-size: 1rem;
+    line-height: 30px;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .footer-bottom-icons {
+    font-size: 28px;
+    gap: 20px;
+  }
+}
+
+/* Small mobile screens (≤ 480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section ul li {
+    font-size: 0.95rem;
+  }
+
+  .f-left {
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+  }
+
+  .footer-bottom-icons {
+    font-size: 24px;
+    gap: 15px;
+  }
+}

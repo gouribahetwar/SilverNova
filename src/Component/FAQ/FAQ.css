@@ -1,0 +1,253 @@
+/* .faq-section {
+  background-color: #000;
+  color: white;
+  padding: 80px 20px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+} */
+ .faq-section {
+  position: relative;
+  background-color: #000;
+  color: white;
+  padding: 80px 20px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  overflow: hidden; /* Ensures images stay inside */
+}
+.faq-decor {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none; /* So they don’t interfere with clicks */
+}
+
+.faq-top-right {
+  top: 0;
+  right: 0;
+  max-width: 420px; 
+  height: auto;
+}
+
+.faq-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: 230px; /* adjust size as needed */
+  height: auto;
+}
+
+/* Make sure content stays above */
+.faq-title,
+.faq-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.faq-title {
+font-size: 2.2rem;
+  margin-bottom: 60px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #FFFFFF, #5F5F5F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 300;
+  text-align: center;
+  font-family: sora,sans-serif;
+}
+.faq-title::after {
+  content: "";
+  position: absolute;
+  left: 80%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #FFFFFF, #5F5F5F);
+  transition: width 0.4s ease;
+}
+.faq-title:hover::after {
+  width: 25%;
+}
+/* Wrapper holds each question + answer pair */
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* space between each FAQ */
+}
+
+/* Question Card */
+.faq-item {
+  position: relative; /* ✅ required for ::before positioning */
+  background: linear-gradient(126.37deg, #000000 9.09%, #0c0c0c 62.51%, #1b1b1b 99.43%);
+  border-radius: 12px;
+  padding: 36px 25px;
+  max-width: 760px;
+  width: 100%;
+  cursor: default;
+  text-align: center; /* centers text horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  z-index: 1;
+  overflow: hidden; /* ✅ hides overflow from before element */
+}
+
+/* ✅ Create a perfect gradient border using ::before */
+.faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px 12px 0 0;
+  padding: 1px; /* thickness of the gradient border */
+  background: linear-gradient(180deg, #070707 0%, #c0c0c0 49.52%, #0e0e0e 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Optional hover glow */
+.faq-item:hover::before {
+  background: linear-gradient(180deg, #2b2b2b 0%, #ffffff 50%, #0e0e0e 100%);
+  transition: background 0.4s ease;
+}
+
+
+/* Question text styling */
+.faq-question {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 25px; /* ✅ added more gap between icon and text */
+  width: 100%;
+}
+
+/* Image Icon Styling */
+.faq-icon {
+  width: 28px;
+  height: 26px;
+  border: 1px solid;
+  border-image-source: linear-gradient(90deg, #ffffff 0%, #5f5f5f 100%);
+  border-image-slice: 1;
+  padding: 5px 0;
+  margin: 0 20px;
+  opacity: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Answer Box outside question */
+.faq-answer {
+  position: relative; /* ✅ needed for before element */
+  background: white;
+  color: black;
+  padding: 10px 94px 50px 92px;
+  border-radius: 0 0 20px 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-transform: capitalize;
+  text-align: justify;
+  max-width: 715px;
+  width: 100%;
+  transition: all 0.4s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+.faq-answer::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* full cover */
+  border-radius: 0 0 20px 20px;
+  padding: 1px; /* border thickness */
+  background: linear-gradient(180deg, #070707 0%, #c0c0c0 49.52%, #0e0e0e 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Optional subtle shadow for premium look */
+.faq-answer:hover {
+  box-shadow: 0px 0px 12px rgba(192, 192, 192, 0.25);
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 28px;
+  }
+ .faq-decor {
+    width: 100px;
+  }
+  .faq-question {
+    font-size: 20px;
+    gap: 15px;
+  }
+
+  .faq-answer {
+    font-size: 18px;
+  }
+  .faq-item {
+  
+  padding: 36px 25px;
+  max-width: 560px;
+}
+}
+@media (max-width: 480px) {
+  .faq-title {
+    font-size: 28px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+    gap: 10px;
+margin-top: 10px;
+  line-height: 1.5;
+  text-align: left;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+    padding: 20px;
+  }
+  .faq-item {
+  position: relative; 
+  background: linear-gradient(126.37deg, #000000 9.09%, #0c0c0c 62.51%, #1b1b1b 99.43%);
+  border-radius: 12px;
+  padding: 10px;
+  
+  
+}
+
+.faq-icon {
+  width: 20px;
+  height: 18px;
+  
+  padding: 5px 0;
+  margin: 0 10px;
+  
+}
+}
