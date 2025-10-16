@@ -31,11 +31,13 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Use Cases</li>
-            <li>Presale Information</li>
-            <li>Contact Us</li>
+           <li><a href="#home">Home</a></li>
+            
+             <li><a href="#about">About Us</a></li>
+             <li><a href="#card">Use Cases</a></li>
+            <li><a href="https://sunswap.com/?lang=en-US#/v2?t0=TGfJ7GoEHZovXM9SVHb5pkBDCj5d4sLKmw&t1=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t&type=swap&from=scan
+">Presale Information</a></li>
+             <li><a href="https://silvers-token.gitbook.io/silvers-token/">Whitepeper</a></li>
           </ul>
         </div>
 
@@ -50,24 +52,59 @@ const Footer = () => {
         </div>
 
         {/* Contact */}
-        <div className="footer-section footer-right">
+        {/* <div className="footer-section footer-right">
           <h3>Contact Us</h3>
           <p>Address: [Insert Company Address]</p>
           <p>Email:supportsilvernova@gmail.com</p>
           <p>Phone: [Insert Phone Number]</p>
          
-        </div>
+        </div> */}
       </div>
 
    <div className="footer-bottom">
   <p>© 2025 Silvernova. All Rights Reserved.</p>
   <div className="footer-bottom-icons">
+  <a
+    href="https://www.instagram.com/silvernova_io/?hl=en"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <FaInstagram />
+  </a>
+
+  <a
+    href="https://www.facebook.com/Silvernova.io/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <FaFacebook />
+  </a>
+
+  <a
+    href="https://t.me/silvernovaofficialchannel"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <FaTelegramPlane />
+  </a>
+
+  <a
+    href="https://yourgamepage.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <FaGamepad />
+  </a>
+
+  <a
+    href="https://www.youtube.com/@Silvernova_io"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <FaYoutube />
-  </div>
+  </a>
+</div>
+
 </div>
       
     </footer>

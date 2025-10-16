@@ -205,8 +205,9 @@
   color:#FFFFFF;
   margin-bottom: 30px;
   font-weight: 400 !important;
-  max-width: 6300px;
-  text-align: left;
+  max-width: 630px;
+  text-align: center;
+ 
 }
 
   .about-subtitle { order: 1; }

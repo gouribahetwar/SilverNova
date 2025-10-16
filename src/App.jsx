@@ -32,15 +32,16 @@ function App() {
   <Cards/>
   <Token/>  
 <TokenSupply/>
-
+<Roadmap/>
 
 <Partner/>
+<Contract/>
 <FAQ/>
 <Footer/>
-{/* <Roadmap/>
-<Contract/>
 
- */}
+
+
+
     </>
   )
 }

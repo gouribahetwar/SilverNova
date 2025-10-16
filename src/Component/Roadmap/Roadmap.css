@@ -264,3 +264,96 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+@media (max-width: 1180px) {
+  .launchpad-card {
+ 
+  width: 310px;
+  height: 240px;
+
+}
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+ 
+}
+.rocket-img {
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  width: 50px;
+  height: 100px;
+  z-index: 5;
+}
+}
+/* Responsive for smaller screens */
+@media (max-width: 742px) {
+  .roadmap-container {
+    display: block; /* stack sections vertically */
+    margin: 50px 0;
+  }
+
+  /* Hide the central line */
+  .roadmap-container::before {
+    display: none;
+  }
+
+  /* Hide the scroll tracker */
+  .scroll-tracker {
+    display: none;
+  }
+
+  /* Stack cards one by one */
+  .launchpad-card {
+    width: 90%; /* take most of screen width */
+    margin: 40px auto;
+  }
+
+  /* Adjust rocket image size */
+  .rocket-img {
+    width: 60px;
+    top: -20px;
+    right: -10px;
+  }
+
+  /* Adjust titles */
+  .title {
+    font-size: 1.8rem;
+    max-width: 90%;
+  }
+
+  .quarter {
+    font-size: 1.5rem;
+    top: 12px;
+    left: 16px;
+  }
+
+  .number-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    bottom: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+.roadmap-deco.top-right {
+  top: -20px;
+  right: 30px;
+  transform: translate(20%, -20%) rotate(10deg);
+ 
+}
+.roadmap-deco.bottom-left {
+  bottom: -20px;
+  left: 30px;
+  transform: translate(-20%, 20%) rotate(-10deg);
+}
+.roadmap-deco {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+}

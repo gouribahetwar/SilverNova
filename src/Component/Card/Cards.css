@@ -330,3 +330,36 @@ box-shadow: 5px 0px 4px 0px #FFFFFF80 inset,
 }
   
 }
+/* Description animation for active card */
+/* Smooth fade swap for title/description */
+.card-title,
+.card-desc {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  transition: opacity 0.9s ease;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.card-desc {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 0 25px;
+  opacity: 0.95;
+}
+
+
+.card.active .card-desc {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 12px;
+  padding: 0 15px;
+}
+

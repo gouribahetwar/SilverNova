@@ -14,7 +14,7 @@ const Token = () => {
   ];
 
   return (
-    <div className="token-section">
+    <div className="token-section" id="token">
       {/* Video Background */}
       <video className="token-bg-video" autoPlay loop muted>
         <source src={backgroundVideo} type="video/mp4" />

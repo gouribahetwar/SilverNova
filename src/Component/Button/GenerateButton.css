@@ -322,3 +322,8 @@
 }
 
 
+/* Ensure spaces render correctly */
+.btn-letter.space {
+  width: 0.4em; /* adjustable spacing between words */
+  display: inline-block;
+}

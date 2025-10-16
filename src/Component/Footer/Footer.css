@@ -93,7 +93,10 @@
   /* allow wrapping on small screens */
   white-space: normal;
 }
-
+.footer-section ul li a{
+  text-decoration:none;
+   color: #ccc;
+}
 .footer-section ul li:hover {
   background: linear-gradient(90deg, #ffffff 0%, #5f5f5f 50%, #5f5f5f 100%);
   -webkit-background-clip: text;
@@ -135,6 +138,7 @@
 
 .social-icons svg:hover {
   color: #fff;
+   
 }
 
 /* footer-right spacing (desktop only) */
@@ -161,6 +165,7 @@
   font-size: var(--footer-bottom-icon-size);
 }
 
+
 .footer-bottom-icons svg {
   color: #ccc;
   transition: color 0.3s ease;
@@ -169,6 +174,7 @@
 
 .footer-bottom-icons svg:hover {
   color: #fff;
+   transform: scale(1.2);
 }
 
 /* -----------------------------
@@ -177,54 +183,59 @@
    ----------------------------- */
 
 /* Prevents overflow earlier for medium screens and allows wrapping */
-@media (max-width: 1200px) {
-  .footer-container {
-    gap: 40px;
-    flex-wrap: wrap;           /* allow sections to wrap when space is tight */
-    align-items: flex-start;
-  }
-
-  .footer-section {
-    flex: 1 1 45%;             /* two columns if space allows */
-    min-width: 220px;
-  }
-
-  /* keep left paragraph from forcing a huge width — let it become responsive */
-  .f-left {
-    width: auto;
-    max-width: 420px;
-  }
-
-  /* reduce top margin of social icons a bit */
-  .social-icons { margin-top: 40px; }
-  .footer-right { margin-right: 30px; }
-}
-
-/* Tablet screens (≤ 1024px) — your original adjustments but tightened to avoid overflow */
-@media (max-width: 1024px) {
+@media (max-width: 1420px) {
   .footer {
-    padding: 50px 60px; /* you already used this — kept but applied at this breakpoint */
+    padding: 30px;
   }
 
+}
+@media (max-width: 1280px) and (min-width: 769px) {
   .footer-container {
-    gap: 32px;
+    flex-wrap: wrap;          /* allow wrapping */
+    justify-content: flex-start;
+    gap: 40px;
   }
 
-  .footer-section {
-    flex: 1 1 48%;
+  /* Center About section */
+  .footer-section.about {
+    flex: 1 1 100%;           /* full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* center logo + text */
+    text-align: center;
+    margin-bottom: 40px;      /* spacing below about section */
   }
 
   .f-left {
     width: 100%;
-    max-width: 100%;
-    font-size: clamp(0.95rem, 1.9vw, 1.02rem); /* slight responsive scaling */
+   
   }
 
-  .footer-logo img { width: 140px; }
-  .social-icons { margin-top: 32px; gap: 16px; }
-  .footer-bottom { width: 100%; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
-  .footer-bottom-icons { gap: 22px; font-size: 34px; }
+  /* Bottom 3 sections in a row */
+  .footer-section:not(.about) {
+    flex: 1 1 0;              /* allow flexible sizing */
+    min-width: 200px;         /* prevent too small */
+    max-width: 33%;           /* cap at 1/3 of container */
+    text-align: left;
+  }
+
+  .footer-right {
+    margin-right: 0;          /* reset desktop margin */
+  }
+
+  /* Ensure all bottom sections are on same row */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* center horizontally */
+    gap: 40px;
+  }
+
+  .footer-section:not(.about) {
+    flex: 1 1 200px;          /* each section takes ~equal space */
+  }
 }
+
 
 /* Mobile screens (≤ 768px) — stack sections vertically and keep spacing tidy */
 @media (max-width: 768px) {
@@ -289,6 +300,9 @@
   .footer {
     padding: 30px 20px;
     border-radius: 6px;
+    width: 98%;
+    margin: 5px auto;
+    
   }
 
   .footer-section h3 { font-size: 18px; }

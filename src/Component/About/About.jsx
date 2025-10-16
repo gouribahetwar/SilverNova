@@ -6,7 +6,7 @@ import sparkleImg from "../../assets/btnlogo.png";
 
 const About = () => {
   return (
-    <div className="about-section">
+    <div className="about-section" id="about">
       {/* Desktop video (visible on desktop only) */}
       <div className="about-left-desktop">
         <video

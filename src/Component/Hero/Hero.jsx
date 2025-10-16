@@ -8,7 +8,7 @@ import sparkleImg from "../../assets/btnlogo.png";
 
 const Hero = () => {
   return (
-    <div className="hero">
+    <div className="hero" id="home">
       <video className="hero-bg" autoPlay loop muted playsInline>
         <source src={heroVideo} type="video/mp4" />
       </video>
@@ -29,9 +29,12 @@ const Hero = () => {
               <GenerateButton icon={sparkleImg}>
                      Buy Now
                    </GenerateButton>
-              <GenerateButton icon={sparkleImg}>
-          Whitepaper
-        </GenerateButton>
+               <GenerateButton
+  icon={sparkleImg}
+  onClick={() => window.open("https://silvers-token.gitbook.io/silvers-token/", "_blank")}
+>
+  Whitepaper
+</GenerateButton>
           </div>
         </div>
 

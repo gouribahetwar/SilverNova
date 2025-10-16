@@ -132,8 +132,8 @@
   .nav-links li {
     width: 80%;
     text-align: center;
-    padding: 15px 0;
-    margin: 10px 0;
+    padding: 8px 0;
+    margin: 6px 0;
     border: 2px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, white, #5F5F5F);
