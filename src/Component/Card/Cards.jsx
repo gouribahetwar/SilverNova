@@ -7,17 +7,17 @@ import use2 from "../../assets/use2.jpg";
 import use3 from "../../assets/use3.png";
 import use4 from "../../assets/use4.jpg";
 import use5 from "../../assets/use5.jpg";
-import use6 from "../../assets/use5.jpg";
-import use7 from "../../assets/use5.jpg";
+import use6 from "../../assets/use6.jpg";
+import use7 from "../../assets/use7.jpg";
 
 // Back images
-import use1back from "../../assets/use1.jpg";
+import use1back from "../../assets/use1back.jpeg";
 import use2back from "../../assets/use2back.png";
 import use3back from "../../assets/use3back.png";
 import use4back from "../../assets/use4back.png";
 import use5back from "../../assets/use5back.png";
-import use6back from "../../assets/use5back.png";
-import use7back from "../../assets/use5back.png";
+import use6back from "../../assets/use6back.jpeg";
+import use7back from "../../assets/use7back.png";
 
 const cards = [
   {

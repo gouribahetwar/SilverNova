@@ -1,32 +1,30 @@
 import React from "react";
 import "./Partner.css";
 
-// replace these with your actual logo paths
-import logo1 from "../../assets/11.png";
+// logos
+import logo1 from "../../assets/22.png";
 import logo2 from "../../assets/12.png";
-import logo3 from "../../assets/13.png";
-import logo4 from "../../assets/14.png";
-import logo5 from "../../assets/19.png";
 
 const logos = [
-  { id: 1, src: logo1, alt: "CoinMarketCap" },
-  { id: 2, src: logo2, alt: "CoinGecko" },
-  { id: 3, src: logo3, alt: "Binance" },
-  { id: 4, src: logo4, alt: "OKX" },
-  { id: 4, src: logo5, alt: "OKCX" },
+  {
+    id: 1,
+    src: logo1,
+    alt: "Sunswap",
+    link: "https://sunswap.com/?lang=en-US#/v2?t0=TGfJ7GoEHZovXM9SVHb5pkBDCj5d4sLKmw&t1=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t&type=swap&from=scan"
+  },
+  {
+    id: 2,
+    src: logo2,
+    alt: "CoinMarketCap",
+    link: "https://dex.coinmarketcap.com/token/bsc/0xb2ffd1b3b48d6913d8d76062cae30708d2a16e62/"
+  }
 ];
 
 const Partner = () => {
   return (
     <div className="section-container">
       <div className="section-left">
-        <p className="partner-text">
-          Empowering the Future of
-          <br />
-          Blockchain Innovation with
-          <br />
-          Silvernova Token (SRN)
-        </p>
+        <p className="partner-text">Listed In</p>
       </div>
 
       <div className="section-right">
@@ -35,9 +33,7 @@ const Partner = () => {
             key={logo.id}
             aria-label={logo.alt}
             className="partner-btn"
-            onClick={() => {
-              /* optional: add link action or onClick behavior */
-            }}
+            onClick={() => window.open(logo.link, "_blank")} // opens link in new tab
           >
             <img src={logo.src} alt={logo.alt} />
           </button>

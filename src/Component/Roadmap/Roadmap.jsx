@@ -34,7 +34,7 @@ const Roadmap = () => {
   }, []);
 
   return (
-    <div className="roadmap-section">
+    <div className="roadmap-section" id="roadmap">
       <img src={RoadImg} alt="Decoration" className="roadmap-deco top-right" />
       <img src={RoadImg} alt="Decoration" className="roadmap-deco bottom-left" />
 

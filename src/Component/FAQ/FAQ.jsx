@@ -6,21 +6,38 @@ import bottomLeftImg from "../../assets/faq2.png"; // 🟢 replace with your ima
 
 const faqData = [
   {
-    question: "How Do I Buy In The Presale?",
+    question: "What is SilverNova?",
     answer:
-      "Connect A BEP-20-Compatible Wallet (E.G., MetaMask On BSC), Select A Tier, Enter Amount In USDT Or BNB (As Specified), And Confirm The Transaction.",
+      "SilverNova (ticker SRN) is a digital token and blockchain-based project aiming to revolutionize digital finance. It is positioned not merely as a cryptocurrency, but as part of a broader movement in Web3, DeFi, and related ecosystems. X (formerly Twitter)",
   },
   {
-    question: "How Do I Buy In The presale?",
+    question: "On which blockchain network does SilverNova operate?",
     answer:
-      "Connect A BEP-20-Compatible Wallet (E.G., MetaMask On BSC), Select A Tier, Enter Amount In USDT Or BNB (As Specified), And Confirm The Transaction.",
+      "SilverNova operates on the BEP-20 network (BEP-20 standard)",
   },
   {
-    question: "How Do I Buy In The Presale?",
+    question: "What is the total or maximum supply of SRN?",
     answer:
-      "Connect A BEP-20-Compatible Wallet (E.G., MetaMask On BSC), Select A Tier, Enter Amount In USDT Or BNB (As Specified), And Confirm The Transaction.",
+      "The maximum or total supply of SRN tokens is 3,000,000,000 (3 billion). ",
+  },
+   {
+    question: " Is SRN a stablecoin?",
+    answer:
+      "No, SRN is not a stablecoin. Its value is subject to market volatility, like most cryptocurrencies.",
+  },
+  {
+    question: "How can I buy or trade SRN?",
+    answer:
+      "You can purchase SRN from various cryptocurrency exchanges that list SRN, using fiat or other crypto. Make sure to use a compatible wallet (e.g. one that supports BNB / BEP-20 tokens) to receive your SRN.",
+  },
+    {
+    question: "Where can I find more technical documentation or resources?",
+    answer:
+      "You can consult: The SRN official website (silvernova.io) Any “Technical Docs” or whitepaper linked on the site",
   },
 ];
+
+
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
